@@ -65,7 +65,7 @@ document.addEventListener("keydown", (e) => {
     if(e.code == "ArrowDown"){
         slideDown();
     }
-    updateScore();
+    
     moves = moves + 1;
     console.log(moves);
 
@@ -82,6 +82,7 @@ function slideUp(){
         }
     }
     setRandomTwo();
+    updateScore();
 }
 
 function slideDown() {
@@ -98,6 +99,7 @@ function slideDown() {
         }
     }
     setRandomTwo();
+    updateScore();
 }
 function slideRight() {
     for(let r = 0; r < rows; r++){
@@ -113,6 +115,7 @@ function slideRight() {
         }
     }
     setRandomTwo();
+    updateScore();
 }
 function slideLeft() {
     for(let r = 0; r < rows; r++){
@@ -127,6 +130,7 @@ function slideLeft() {
         }
     }
     setRandomTwo();
+    updateScore();
 }
 function updateVal(tile, num){
     tile.classList = "";

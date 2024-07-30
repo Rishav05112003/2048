@@ -132,6 +132,13 @@ h1{
         height: 65px;
         width: 65px;
     }
+    .button{
+        height: 10px;
+        width: 30px;
+    }
+    h1{
+        font-size: small;
+    }
 }
 
 
