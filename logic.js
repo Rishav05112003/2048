@@ -6,6 +6,7 @@ var col = 4;
 
 window.onload = function()  {
     setGame()
+
     let resetButton = document.getElementById("reset");
     resetButton.addEventListener("click", reset);
 }
@@ -44,6 +45,52 @@ function setGame() {
     setRandomTwo();
     setRandomTwo();
 }
+
+document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;                                                        
+var yDown = null;                                                        
+
+function handleTouchStart(evt) {                                         
+    xDown = evt.touches[0].clientX;                                      
+    yDown = evt.touches[0].clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            /* left swipe */ 
+            slideLeft();
+        } else {
+            /* right swipe */
+            slideRight();
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */ 
+            slideUp();
+        } else { 
+            /* down swipe */
+            slideDown();
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
+
+
 document.addEventListener("keydown", (e) => {
 
     if(e.code == "ArrowLeft"){
