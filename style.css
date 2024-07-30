@@ -122,3 +122,16 @@ h1{
     background-color: #41041d;
     color: white;
 }
+
+@media screen and (max-width : 1000px) {
+    #board{
+        height: 300px;
+        width: 300px;
+    }
+    .tile{
+        height: 65px;
+        width: 65px;
+    }
+}
+
+
