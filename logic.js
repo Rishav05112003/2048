@@ -104,6 +104,7 @@ function slideDown() {
 function slideRight() {
     for(let r = 0; r < rows; r++){
         let curRow = board[r];
+        curRow.reverse();
         curRow = slide(curRow);
         curRow.reverse();
         board[r] = curRow;
